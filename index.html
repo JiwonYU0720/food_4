@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>food</title>
+	<style type="text/css">
+		body{background: black}
+		.ham{position: absolute; left: 0; top: 0;}
+		#poetText{ z-index: 9; 
+		           position: absolute; left: 800px; top:200px; 
+		           font-size: 2rem;
+		           font-weight:600; color: yellow; text-shadow: 0px 0px 7px white; text-align: center;
+		         
+		           }
+
+		           .word{opacity: 0; animation: fadein 1s forwards;}
+		           @keyframes fadein{
+		           	 to {opacity: 1}
+		           }
+
+	
+	</style>
+</head>
+
+<body>
+	<div id="poetText">
+		<span class="word">하늘에서<br> </span>
+		<span class="word">음식이 내린다면<br> </span>
+		<span class="word">어떤 일이 벌어질까?<br> </span>
+		<span class="word">오늘은 햄버거 비<br> </span>
+		<span class="word">내일은 스파게티 폭풍!<br> </span>
+		<span class="word"> <br> </span>
+		<span class="word">지나치게(?)<br> </span>
+		<span class="word">맛있는 상상이<br> </span>
+		<span class="word">만들어낸 사상 초유의<br> </span>
+		<span class="word">음식재난!<br> </span>
+		<span class="word"> </span>
+		</div>
+
+	<script type="text/javascript">
+        	
+		var a = ["ham", "pasta", "meat"]
+
+		for(var i=0; i<100;i++){
+			var t = document.createElement("img")
+			t.src =a[randomBH(0,2)]+".png"
+			t.className = "ham";
+			t.style.width = randomBH(20,100)+"px";
+			t.style.height = "auto"
+			t.style.left = Math.random()*screen.availWidth + "px";
+			t.style.top = Math.random()*screen.availHeight + "px";
+			document.body.appendChild(t);
+			}
+
+			function randomBH(min,max){
+				min = Math.ceil(min);
+				max = Math.floor(max);
+				return Math.floor(Math.random()*(max-min+1)) + min;
+			}
+
+			var t = setInterval(makeHam, 1000);
+
+			
+			
+			var poet = "하늘에서<br>음식이 내린다면<br>오늘은 햄버거 비!<br>내일은 스파게티 폭풍!<br>하늘에서 음식이 내린다면<br>어떤 일이 벌어질까?<br>지나치게(?) <br>맛있는 상상이 <br>만들어낸 사상 초유의<br>`음식재난`이 시작된다!<br>"
+
+			var poetArr = poet.split(" ");
+			console.log(poetArr)
+
+			var myTimer = setInterval(print,500)
+			var s=0;
+			function print(){
+				document.createElement("span");
+				t.innerHTML = poetArr[s]=" ";
+		
+				s++;
+				poetText.appendChild(t);
+
+				if(s == poetArr.length)
+				clearInterval(myTimer)
+			}
+
+	</script>
+			
+
+
+		
+
+		
+
+			
+	
+</body>
+</html>
